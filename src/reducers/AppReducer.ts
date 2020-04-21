@@ -5,6 +5,13 @@ export const AppReducer: GlobalStateReducer = (
   action
 ): GlobalState => {
   switch (action.type) {
+    case 'DELETE_TRANSACTION':
+      return {
+        ...state,
+        transactions: state.transactions.filter(
+          (transaction) => transaction.id !== action.id
+        ),
+      };
     default:
       return state;
   }

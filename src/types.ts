@@ -9,13 +9,18 @@ export interface GlobalState {
 }
 
 // export type
-
-export type GlobalStateActions = {
-  type: 'ADD';
-  payload: any;
+export type DELETE_TRANSACTION = {
+  type: 'DELETE_TRANSACTION';
+  id: number;
 };
+
+export type GlobalStateActions = DELETE_TRANSACTION;
 
 export type GlobalStateReducer = (
   state: GlobalState,
   action: GlobalStateActions
 ) => GlobalState;
+
+export interface GlobalStateDispatch {
+  dispatch: React.Dispatch<GlobalStateActions>;
+}
