@@ -1,5 +1,5 @@
 export interface Transaction {
-  id: number;
+  id: string;
   text: string;
   amount: number;
 }
@@ -11,10 +11,15 @@ export interface GlobalState {
 // export type
 export type DELETE_TRANSACTION = {
   type: 'DELETE_TRANSACTION';
-  id: number;
+  id: string;
 };
 
-export type GlobalStateActions = DELETE_TRANSACTION;
+export type ADD_TRANSACTION = {
+  type: 'ADD_TRANSACTION';
+  transaction: Transaction;
+};
+
+export type GlobalStateActions = DELETE_TRANSACTION | ADD_TRANSACTION;
 
 export type GlobalStateReducer = (
   state: GlobalState,

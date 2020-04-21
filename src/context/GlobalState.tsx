@@ -4,18 +4,7 @@ import { GlobalState, GlobalStateReducer, GlobalStateDispatch } from '../types';
 import { AppReducer } from '../reducers/AppReducer';
 
 const initialState: GlobalState = {
-  transactions: [
-    {
-      id: 1,
-      text: 'Flower',
-      amount: -20,
-    },
-    {
-      id: 2,
-      text: 'Salary',
-      amount: 300,
-    },
-  ],
+  transactions: [],
 };
 
 export const GlobalContext = createContext<GlobalState>(initialState);

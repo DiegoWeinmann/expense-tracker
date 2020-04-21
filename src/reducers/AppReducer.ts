@@ -12,6 +12,11 @@ export const AppReducer: GlobalStateReducer = (
           (transaction) => transaction.id !== action.id
         ),
       };
+    case 'ADD_TRANSACTION':
+      return {
+        ...state,
+        transactions: [...state.transactions, action.transaction],
+      };
     default:
       return state;
   }

@@ -20,11 +20,13 @@ export const IncomeExpenses = () => {
     <div className="inc-exp-container">
       <div>
         <h4>Income</h4>
-        <p className="money plus">+${incomeExpenses.incomes.toFixed(2)}</p>
+        <p className="money plus">${incomeExpenses.incomes.toFixed(2)}</p>
       </div>
       <div>
         <h4>Expenses</h4>
-        <p className="money minus">${incomeExpenses.expenses.toFixed(2)}</p>
+        <p className="money minus">
+          ${Math.abs(incomeExpenses.expenses).toFixed(2)}
+        </p>
       </div>
     </div>
   );

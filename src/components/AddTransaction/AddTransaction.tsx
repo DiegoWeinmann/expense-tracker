@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { nanoid } from 'nanoid';
+
+import { GlobalContextDispatch } from '../../context/GlobalState';
 
 export const AddTransaction: React.FC = () => {
+  const { dispatch } = useContext(GlobalContextDispatch);
   const [text, setText] = useState<string>('');
   const [amount, setAmount] = useState<string>('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch({
+      type: 'ADD_TRANSACTION',
+      transaction: {
+        id: nanoid(),
+        text,
+        amount: Number(amount),
+      },
+    });
+  };
 
   return (
     <>
       <h3>Add new transaction</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="text">Text</label>
           <input
