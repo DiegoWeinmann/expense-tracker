@@ -10,7 +10,7 @@ export const Transaction: React.FC<TransactionProps> = ({
 }) => {
   const sign = Number(amount) < 0 ? '-' : '+';
   return (
-    <li className="minus">
+    <li className={amount < 0 ? 'minus' : 'plus'}>
       {text}{' '}
       <span>
         {sign}${Math.abs(amount)}
